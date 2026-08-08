@@ -1,0 +1,29 @@
+{
+  "info": {
+    "name": "TaskFlow API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Auth",
+      "item": [
+        {"name": "Register", "request": {"method": "POST", "header": [{"key": "Content-Type", "value": "application/json"}], "body": {"mode": "raw", "raw": "{\n  \"name\": \"Test User\",\n  \"email\": \"test@example.com\",\n  \"password\": \"password123\",\n  \"role\": \"employee\"\n}"}, "url": {"raw": "http://localhost:5000/api/auth/register", "host": ["http://localhost:5000"], "path": ["api", "auth", "register"]}}},
+        {"name": "Login", "request": {"method": "POST", "header": [{"key": "Content-Type", "value": "application/json"}], "body": {"mode": "raw", "raw": "{\n  \"email\": \"admin@example.com\",\n  \"password\": \"admin123\"\n}"}, "url": {"raw": "http://localhost:5000/api/auth/login", "host": ["http://localhost:5000"], "path": ["api", "auth", "login"]}}}
+      ]
+    },
+    {
+      "name": "Employees",
+      "item": [
+        {"name": "Get Employees", "request": {"method": "GET", "header": [{"key": "Authorization", "value": "Bearer {{token}}"}], "url": {"raw": "http://localhost:5000/api/employees", "host": ["http://localhost:5000"], "path": ["api", "employees"]}}},
+        {"name": "Create Employee", "request": {"method": "POST", "header": [{"key": "Authorization", "value": "Bearer {{token}}"}, {"key": "Content-Type", "value": "application/json"}], "body": {"mode": "raw", "raw": "{\n  \"name\": \"New Employee\",\n  \"email\": \"newemployee@example.com\",\n  \"password\": \"password123\",\n  \"role\": \"employee\"\n}"}, "url": {"raw": "http://localhost:5000/api/employees", "host": ["http://localhost:5000"], "path": ["api", "employees"]}}}
+      ]
+    },
+    {
+      "name": "Tasks",
+      "item": [
+        {"name": "Get Tasks", "request": {"method": "GET", "header": [{"key": "Authorization", "value": "Bearer {{token}}"}], "url": {"raw": "http://localhost:5000/api/tasks", "host": ["http://localhost:5000"], "path": ["api", "tasks"]}}},
+        {"name": "Create Task", "request": {"method": "POST", "header": [{"key": "Authorization", "value": "Bearer {{token}}"}, {"key": "Content-Type", "value": "application/json"}], "body": {"mode": "raw", "raw": "{\n  \"title\": \"Design review\",\n  \"description\": \"Prepare requirements summary\",\n  \"assignedTo\": \"{{employeeId}}\",\n  \"status\": \"Todo\"\n}"}, "url": {"raw": "http://localhost:5000/api/tasks", "host": ["http://localhost:5000"], "path": ["api", "tasks"]}}}
+      ]
+    }
+  ]
+}
